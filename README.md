@@ -46,6 +46,13 @@ The evidence for the user pain, overlap with existing plugins, and claims this r
 
 ## Install
 
+From npm:
+
+```sh
+dsh plugin --profile default add dsh-ask-first@0.1.1
+dsh --profile default --dump-config
+```
+
 From a local checkout:
 
 ```sh
@@ -53,7 +60,7 @@ dsh plugin --profile default add ./dsh-ask-first
 dsh --profile default --dump-config
 ```
 
-After the public repository is available, pin the commit you reviewed:
+Or pin the Git commit you reviewed:
 
 ```sh
 dsh plugin --profile default add github:1052326311/dsh-ask-first#<commit>

@@ -1,6 +1,6 @@
 {
   "name": "dsh-ask-first",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Adaptive product discovery for DeepSeek Harness using native question dialogs and requirement confirmation.",
   "repository": {
     "type": "git",

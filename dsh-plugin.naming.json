@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "policy": "dsh-plugin-naming/v1",
   "plugin": {
-    "namespace": "1052326311",
+    "namespace": "xin-zhuang",
     "name": "ask-first",
-    "coordinate": "1052326311/ask-first",
+    "coordinate": "xin-zhuang/ask-first",
     "packageName": "dsh-ask-first"
   },
   "names": {
