@@ -19,3 +19,5 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm pack --dry-run
+      - run: npm run smoke:package
+        timeout-minutes: 5
