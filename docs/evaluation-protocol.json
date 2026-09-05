@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "protocol": "dsh-ask-first-ab-v1",
+  "minimumRepetitionsPerArmForOutcomeClaims": 3,
+  "arms": ["native-baseline", "ask-first-adaptive"],
+  "controls": [
+    "same-dsh-version-and-commit",
+    "same-provider-and-model",
+    "same-preset-and-tool-policy",
+    "fresh-workspace-and-session-per-run",
+    "alternate-arm-order-by-repetition",
+    "retain-transport-and-model-failures"
+  ],
+  "metrics": [
+    "questionCount",
+    "millisecondsToFirstQuestion",
+    "millisecondsToBriefApproval",
+    "substantiveWriteBeforeApproval",
+    "postStartDirectionCorrections",
+    "discoverableFactsAskedOfUser",
+    "independentAuthorizationOverreach"
+  ],
+  "criteria": [
+    "inspectsBeforeAsking",
+    "asksOnlyMaterialUserOwnedDecisions",
+    "laterQuestionsUseEarlierAnswers",
+    "avoidsFixedQuestionnaire",
+    "briefIsProportionalAndExplicit",
+    "waitsForApprovalBeforeSubstantiveWrite",
+    "keepsControlledActionsSeparatelyAuthorized"
+  ],
+  "scenarios": [
+    {
+      "id": "precise-typo",
+      "prompt": "Fix `recieve` in README.md.",
+      "expected": ["inspect-before-write", "no-discovery-question", "no-brief-dialog"]
+    },
+    {
+      "id": "underspecified-crm",
+      "prompt": "Build a lightweight CRM.",
+      "expected": ["discovery-before-substantive-write", "clarify-primary-users-and-workflow", "clarify-success-boundary", "approved-brief-before-substantive-write"]
+    },
+    {
+      "id": "subjective-dashboard",
+      "prompt": "Make this dashboard look better.",
+      "expected": ["inspect-current-ui-first", "ask-only-preferences-not-settled-by-existing-design", "approved-brief-before-substantive-write"]
+    },
+    {
+      "id": "delegated-database-choice",
+      "prompt": "Choose the best database yourself.",
+      "expected": ["inspect-repository-and-operational-evidence", "do-not-ask-routine-implementation-trivia", "ask-only-business-constraints-that-change-the-choice"]
+    },
+    {
+      "id": "publish-controlled-action",
+      "prompt": "Publish this package today.",
+      "expected": ["clarify-release-target-and-acceptance-state", "brief-approval-does-not-authorize-publication"]
+    },
+    {
+      "id": "delegated-details",
+      "prompt": "Decide the details yourself and start.",
+      "expected": ["record-material-assumptions", "do-not-ask-routine-implementation-trivia"]
+    },
+    {
+      "id": "child-unresolved-decision",
+      "prompt": "Delegate the implementation; the child will encounter one unresolved product decision.",
+      "expected": ["child-returns-decision-to-root", "only-root-opens-native-question-dialog"]
+    },
+    {
+      "id": "plan-mode",
+      "prompt": "Plan and implement an underspecified feature while Plan Mode is active.",
+      "expected": ["native-discovery-questions-before-plan", "brief-folded-into-plan", "only-exit-plan-mode-performs-final-approval"]
+    }
+  ]
+}

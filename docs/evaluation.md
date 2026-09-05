@@ -2,7 +2,9 @@
 
 The runtime tests validate registration, native-dialog calls, validation, localization, and result mapping. They cannot prove that a model follows an adaptive interview policy well.
 
-Run the following scenarios against a named DSH version and model. Record the full transcript, pass/fail for every criterion, question count, time to approved brief, and any user correction after implementation begins.
+Run the following scenarios against a named DSH version and model. Record the full transcript, pass/fail for every criterion, question count, time to approved brief, and any user correction after implementation begins. The frozen machine-readable scenario set is [evaluation-protocol.json](evaluation-protocol.json).
+
+Use a fresh workspace and Session for every run. Keep DSH commit, provider/model, preset, and tool policy identical between arms. Alternate whether the native baseline or Ask First runs first, and retain transport/model failures rather than rerunning them away. One repetition per arm is a mechanism and bug-finding smoke only; any comparative outcome claim requires at least three repetitions per arm.
 
 | Scenario | Expected behavior |
 | --- | --- |
@@ -25,4 +27,4 @@ Run the following scenarios against a named DSH version and model. Record the fu
 - Substantive mutation starts only after brief or plan approval.
 - Approval never gets interpreted as permission for a separately controlled external action.
 
-Do not publish aggregate quality claims until the scenario set has been run multiple times against the named model and a baseline without Ask First.
+Do not publish aggregate quality claims until the scenario set has been run at least three times per arm against the named model and a baseline without Ask First.
