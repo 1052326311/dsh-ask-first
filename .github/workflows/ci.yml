@@ -16,6 +16,9 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
       - run: npm ci
       - run: npm test
       - run: npm pack --dry-run
