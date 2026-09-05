@@ -1,6 +1,8 @@
 # DSH 原生能力核对
 
-核对日期为 2026-09-05，目标是已发布的 `dsh-v0.1.2-rc.1`（`a66e4702047846cdaa10c66c9d3df3951f5ea70d`）。本文严格区分 DSH 原生行为与 Ask First 新增行为。相关的提问、Plan Mode、Web answerer 和 system prompt 源码相对 `dsh-v0.1.2-alpha.5` 没有行为差异，RC.1 只更新了包版本。
+核对日期为 2026-09-06，同时覆盖 npm 上最新可安装版 `dsh-v0.1.2-rc.1`（`a66e4702047846cdaa10c66c9d3df3951f5ea70d`）和上游最新源码 tag `dsh-v0.1.3-alpha.1`（`d347e703908d0406b7a7ef80e3a0e594d86b2215`）。本文严格区分 DSH 原生行为与 Ask First 新增行为。
+
+逐文件比较了 `UserQuestionService`、问题类型、`ask_user_question`、Web 问题卡和方案审核卡、system prompt 组装与 Plan Mode 七个所有者文件，两个版本之间没有需求发现或确认行为变化。唯一差异是 `/plan off` 从只拒绝图片扩展为拒绝任意附件。RC.1 仍是安装兼容目标；对 alpha 源码的核对用于避免把已有的新上游能力误判成缺口。
 
 ## 原生能力
 
@@ -50,6 +52,7 @@ DSH 原生提供了交互机制，没有规定产品发现方法。Ask First 新
 ## 一手资料
 
 - [DSH `0.1.2-rc.1` release](https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.2-rc.1)
+- [DSH `0.1.3-alpha.1` 源码 tag](https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.3-alpha.1)
 - [`dsh-user-questions` 类型](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.1.2-rc.1/packages/interaction/user-questions/src/types.ts)
 - [`UserQuestionService`](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.1.2-rc.1/packages/interaction/user-questions/src/index.ts)
 - [`ask_user_question` Consumer](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.1.2-rc.1/packages/interaction/tool-ask-user/src/index.ts)

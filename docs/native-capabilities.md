@@ -1,6 +1,8 @@
 # Native DSH capability review
 
-Verified on 2026-09-05 against the published `dsh-v0.1.2-rc.1` release (`a66e4702047846cdaa10c66c9d3df3951f5ea70d`). This document separates native behavior from what Ask First adds. The relevant question, Plan Mode, Web answerer, and system-prompt source files have no behavioral diff from `dsh-v0.1.2-alpha.5`; RC.1 only changes their package versions.
+Verified on 2026-09-06 against both the latest npm release, `dsh-v0.1.2-rc.1` (`a66e4702047846cdaa10c66c9d3df3951f5ea70d`), and the newest upstream source tag, `dsh-v0.1.3-alpha.1` (`d347e703908d0406b7a7ef80e3a0e594d86b2215`). This document separates native behavior from what Ask First adds.
+
+The seven owning files for `UserQuestionService`, question types, `ask_user_question`, the Web question and plan-review panels, system-prompt assembly, and Plan Mode have no discovery or approval behavior change between those revisions. The only diff is that `/plan off` rejects any attachment rather than only image attachments. RC.1 remains the installable compatibility target; the alpha source check prevents a newer upstream implementation from being mistaken for a missing native feature.
 
 ## Native capability
 
@@ -50,6 +52,7 @@ Native DSH supplies interaction mechanics, not a product-discovery policy. Ask F
 ## Primary sources
 
 - [DSH `0.1.2-rc.1` release](https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.2-rc.1)
+- [DSH `0.1.3-alpha.1` source tag](https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.1.3-alpha.1)
 - [`dsh-user-questions` types](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.1.2-rc.1/packages/interaction/user-questions/src/types.ts)
 - [`UserQuestionService`](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.1.2-rc.1/packages/interaction/user-questions/src/index.ts)
 - [`ask_user_question` Consumer](https://github.com/deepseek-ai/deepseek-harness/blob/dsh-v0.1.2-rc.1/packages/interaction/tool-ask-user/src/index.ts)
