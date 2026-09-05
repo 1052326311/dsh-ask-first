@@ -30,7 +30,8 @@
     "test": "vitest run --coverage",
     "test:unit": "vitest run",
     "check": "npm run test:unit && npm pack --dry-run",
-    "eval:validate": "node scripts/validate-evaluation.mjs"
+    "eval:validate": "node scripts/validate-evaluation.mjs",
+    "smoke:package": "node scripts/smoke-package.mjs"
   },
   "dsh": {
     "bundle": {
