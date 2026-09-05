@@ -174,6 +174,16 @@ describe('ask_first_confirm', () => {
       .rejects.toThrow('stop here and wait for their message')
   })
 
+  it('recognizes cancellation errors from another package copy', async () => {
+    const failure = new Error('question cancelled')
+    failure.name = 'UserQuestionError'
+    failure.code = 'ASK_CANCELLED'
+    ctx.userQuestions.ask.mockRejectedValue(failure)
+
+    await expect(execute(tool, { brief: '# Brief', language: 'en' }))
+      .rejects.toThrow('stop here and wait for their message')
+  })
+
   it('preserves other interaction failures', async () => {
     const failure = new UserQuestionError('no answerer', 'NO_PROVIDER')
     ctx.userQuestions.ask.mockRejectedValue(failure)

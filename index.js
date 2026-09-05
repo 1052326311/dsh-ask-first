@@ -104,6 +104,14 @@ function reviewStatus(answer, labels) {
   return { status: 'revise' }
 }
 
+function isQuestionCancellation(cause) {
+  return cause instanceof UserQuestionError
+    ? cause.code === 'ASK_CANCELLED'
+    : cause instanceof Error
+      && cause.name === 'UserQuestionError'
+      && cause.code === 'ASK_CANCELLED'
+}
+
 export function apply(ctx, config) {
   ctx.systemPrompt.section({
     name: 'ask-first:alignment',
@@ -158,7 +166,7 @@ export function apply(ctx, config) {
         ...(exec.agent === undefined ? {} : { agent: exec.agent }),
         signal: exec.signal,
       }).catch(cause => {
-        if (cause instanceof UserQuestionError && cause.code === 'ASK_CANCELLED') {
+        if (isQuestionCancellation(cause)) {
           throw new Error('The user dismissed the requirement review to speak instead; stop here and wait for their message.')
         }
         throw cause
