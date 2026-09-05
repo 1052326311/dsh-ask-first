@@ -49,17 +49,29 @@ function waitForServer(child, timeoutMs = 60_000) {
   })
 }
 
+function signalServerTree(child, signal) {
+  try {
+    if (process.platform === 'win32') {
+      child.kill(signal)
+    } else {
+      process.kill(-child.pid, signal)
+    }
+  } catch (error) {
+    if (error?.code !== 'ESRCH') throw error
+  }
+}
+
 async function stopServer(child) {
-  if (child.exitCode !== null) return
-  const exited = new Promise(resolve => child.once('exit', resolve))
-  child.kill('SIGTERM')
+  if (child.exitCode !== null && child.stdout.destroyed && child.stderr.destroyed) return
+  const closed = new Promise(resolve => child.once('close', resolve))
+  signalServerTree(child, 'SIGTERM')
   const graceful = await Promise.race([
-    exited.then(() => true),
+    closed.then(() => true),
     new Promise(resolve => setTimeout(() => resolve(false), 5_000)),
   ])
-  if (!graceful && child.exitCode === null) {
-    child.kill('SIGKILL')
-    await exited
+  if (!graceful) {
+    signalServerTree(child, 'SIGKILL')
+    await closed
   }
 }
 
@@ -100,6 +112,7 @@ async function main() {
 
     server = spawn('npx', [...DSH_ARGS, '--profile', 'web', '--no-open', '--host', '127.0.0.1', '--port', '0'], {
       cwd: process.cwd(),
+      detached: process.platform !== 'win32',
       env: environment,
       stdio: ['ignore', 'pipe', 'pipe'],
     })
