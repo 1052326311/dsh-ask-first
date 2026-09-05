@@ -23,12 +23,14 @@
     "README.zh-CN.md",
     "CHANGELOG.md",
     "docs",
+    "scripts",
     "LICENSE"
   ],
   "scripts": {
     "test": "vitest run --coverage",
     "test:unit": "vitest run",
-    "check": "npm run test:unit && npm pack --dry-run"
+    "check": "npm run test:unit && npm pack --dry-run",
+    "eval:validate": "node scripts/validate-evaluation.mjs"
   },
   "dsh": {
     "bundle": {
