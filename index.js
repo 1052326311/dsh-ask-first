@@ -61,8 +61,8 @@ function modeGuidance(mode) {
 
 export function buildGuidance(config) {
   const confirmation = config.confirmBrief
-    ? 'Before substantive execution, review the settled brief with ask_first_confirm. Revise or keep interviewing when requested. Approval covers only work inside the brief, never a separately controlled action such as publishing, purchasing, deleting, or messaging others.'
-    : 'Summarize the settled brief in the conversation before substantive execution. Do not call ask_first_confirm.'
+    ? 'Outside DSH Plan Mode, when discovery applies and is complete, review the settled brief with ask_first_confirm before substantive execution. Revise or keep interviewing when requested. Approval covers only work inside the brief, never a separately controlled action such as publishing, purchasing, deleting, or messaging others.'
+    : 'When discovery applies and is complete, summarize the settled brief in the conversation before substantive execution. Do not call ask_first_confirm.'
 
   return `## Ask First: align intent before execution
 

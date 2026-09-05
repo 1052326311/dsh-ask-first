@@ -59,8 +59,17 @@ describe('Ask First guidance', () => {
     const guidance = buildGuidance({ ...defaultConfig, confirmBrief: false })
     const { state } = setup({ ...defaultConfig, confirmBrief: false })
     expect(guidance).toContain('Do not call ask_first_confirm')
-    expect(guidance).not.toContain('Before substantive execution, present the settled brief')
+    expect(guidance).toContain('When discovery applies and is complete')
     expect(state.tool).toBeUndefined()
+  })
+
+  it('scopes brief confirmation to discovery and excludes Plan Mode', () => {
+    const guidance = buildGuidance(defaultConfig)
+
+    expect(guidance).toContain('when discovery applies and is complete')
+    expect(guidance).toContain('Outside DSH Plan Mode')
+    expect(guidance).toContain('use exit_plan_mode for final review instead')
+    expect(guidance).not.toContain('Before substantive execution, review the settled brief')
   })
 })
 
