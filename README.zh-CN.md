@@ -42,6 +42,8 @@ DSH `0.1.2-rc.1` 已经有了很好的底层能力：
 
 详细的原生能力边界和证据见 [DSH 原生能力核对](docs/native-capabilities.zh-CN.md)。
 
+用户痛点证据、与现有插件的重叠以及本版本明确不做的效果声明，见 [产品与重复性审计](docs/product-audit.zh-CN.md)。
+
 ## 安装
 
 本地 checkout：

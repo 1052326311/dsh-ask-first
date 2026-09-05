@@ -42,6 +42,8 @@ Those primitives do not decide when a request is underspecified, what the next h
 
 See [Native DSH capability review](docs/native-capabilities.md) for the verified boundary and sources.
 
+The evidence for the user pain, overlap with existing plugins, and claims this release deliberately does not make are recorded in the [product and overlap audit](docs/product-audit.md).
+
 ## Install
 
 From a local checkout:
