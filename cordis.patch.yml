@@ -1,0 +1,8 @@
+- insert:
+    - id: 1052326311-ask-first
+      name: dsh-ask-first
+      config:
+        mode: adaptive
+        maxQuestionsPerRound: 3
+        confirmBrief: true
+        briefMaxChars: 12000

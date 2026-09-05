@@ -1,0 +1,6 @@
+url: https://github.com/1052326311/dsh-ask-first
+name: 1052326311/dsh-ask-first
+category: workflow
+description:
+  en: 'Adaptive product discovery for DeepSeek Harness: inspects available evidence first, asks only material user-owned decisions through native question dialogs, progressively builds a proportional requirement brief, and waits for approval before substantive work while letting precise reversible tasks stay fast.'
+  zh: 'DeepSeek Harness 自适应需求发现插件：先检查环境证据，再用原生弹窗只询问会改变方案的用户决定，逐轮生成与任务成比例的需求 brief，确认后才开始实质性工作；明确可回退的小任务仍直接执行。'

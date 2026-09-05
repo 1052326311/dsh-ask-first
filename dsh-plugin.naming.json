@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "policy": "dsh-plugin-naming/v1",
+  "plugin": {
+    "namespace": "1052326311",
+    "name": "ask-first",
+    "coordinate": "1052326311/ask-first",
+    "packageName": "dsh-ask-first"
+  },
+  "names": {
+    "pluginNames": [
+      "ask-first"
+    ],
+    "loaderIds": [
+      "1052326311-ask-first"
+    ],
+    "services": [],
+    "tools": [
+      "ask_first_confirm"
+    ],
+    "commands": [],
+    "skills": [],
+    "skillProviders": [],
+    "events": [],
+    "settingsNamespaces": [],
+    "routes": []
+  }
+}
